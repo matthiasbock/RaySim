@@ -1,0 +1,4 @@
+RaySim
+======
+
+Geometrical optics simulator
