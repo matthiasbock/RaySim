@@ -1,0 +1,30 @@
+<html>
+
+<head>
+<script src="../jquery.js"></script>
+<script src="../optics.js"></script>
+<script src="index.js"></script>
+<link rel="stylesheet" type="text/css" href="index.css"/>
+</head>
+
+<body id="body">
+<h1>LensMaker</h1>
+Was magst'n f&uuml;r eine:<br/>
+<div id=divChooseLens>
+<input id="radioBiconvex" type="radio" class="radioChooseLens" name="radioChooseLens" onchange="showCustomizer('Biconvex');"> <label class="labelRadio" onclick="checkRadio('Biconvex');">bikonvex</label>
+<input id="radioBiconcave" type="radio" class="radioChooseLens" name="radioChooseLens" onchange="showCustomizer('Biconcave');"> <label class="labelRadio" onclick="checkRadio('Biconcave');">bikonkav</label>
+</div>
+
+<br/>
+
+<div id="divBiconvex" class="divCustomizer">
+<img src="Sammellinse.svg"/>
+</div>
+
+<div id="divBiconcave" class="divCustomizer">
+<img src="Negative.lens.svg"/>
+</div>
+
+</body>
+
+</html>
