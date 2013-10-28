@@ -19,5 +19,6 @@ Element.prototype.setXY = function(x, y) {
     return this;
 };
 
+$.getScript('js/ray.js');
 $.getScript('js/lightsource.js');
 $.getScript('js/mirror.js');

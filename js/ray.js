@@ -1,20 +1,43 @@
 
-Ray = function(x1, y1, degree) {
+Ray = function(parentSetup, x, y, degree, length) {
     
-    var obj = {
-            x1: x1,
-            y1: y1,
-            degree: degree
-    };
+    Element.call(this);
     
-    obj.draw = function() {
-        var r = 30;
-        var x2 = this.x1 + Math.cos(this.degree)*r;
-        var y2 = this.y1 + Math.sin(this.degree)*r;
-        this.path = this.parent.svg.append('svg:path')
-                        .attr('d', 'M '+x1+','+y1+' L '+x2+','+y2)
-                        .attr('stroke','black');
-    };
+    this.parentSetup = parentSetup;
+    this.parentSetup.append(this);
+    this.path = this.parentSetup.svg.append('svg:path').attr('class','ray');
     
-    return obj;
+    this.x = x;
+    this.y = y;
+    this.degree = degree;
+    this.setLength( this.length = length ? length : 2000 );
 };
+
+Ray.prototype = new Element();
+
+Ray.prototype.constructor = Ray;
+
+Ray.prototype.refreshPath = function() {
+    this.stop = {
+                x: Math.cos(this.degree*Math.PI/180)*this.length,
+                y: Math.sin(this.degree*Math.PI/180)*this.length
+                };
+    this.path.attr('d', 'M0,0 l'+coord(this.stop));
+};
+
+Ray.prototype.setDegree = function(degree) {
+    this.degree = degree;
+    this.refreshPath();
+    this.refresh();
+};
+
+Ray.prototype.setLength = function(length) {
+    this.length = length;
+    this.refreshPath();
+    this.refresh();
+};
+
+Ray.prototype.refresh = function() {
+    this.path.attr('transform', 'translate('+this.x+','+this.y+')');
+};
+

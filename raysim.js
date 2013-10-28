@@ -40,5 +40,4 @@ $.extend({
 });
 
 $.getScript('js/setup.js');
-$.getScript('js/ray.js');
 $.getScript('js/elements.js');

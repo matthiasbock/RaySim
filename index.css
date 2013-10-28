@@ -23,3 +23,8 @@ svg {
     stroke: gray;
     stroke-dasharray: 5,3;
 }
+
+.ray {
+    stroke: #ddd;
+    fill: none;
+}
